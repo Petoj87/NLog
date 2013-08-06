@@ -722,7 +722,8 @@ namespace NLog.Targets
         {
             if (archiveNumber >= this.MaxArchiveFiles)
             {
-                isolatedStorageFile.DeleteFile(fileName);
+                if (isolatedStorageFile.FileExists(fileName))
+                    isolatedStorageFile.DeleteFile(fileName);
                 return;
             }
 
@@ -743,7 +744,7 @@ namespace NLog.Targets
             {
                 isolatedStorageFile.MoveFile(fileName, newFileName);
             }
-            catch (IOException)
+            catch (IsolatedStorageException)
             {
                 string dir = Path.GetDirectoryName(newFileName);
                 if (!isolatedStorageFile.DirectoryExists(dir))
@@ -792,7 +793,7 @@ namespace NLog.Targets
                     nextNumber = Math.Max(nextNumber, num);
                     minNumber = minNumber != -1 ? Math.Min(minNumber, num) : num;
 
-                    number2name[num] = s;
+                    number2name[num] = Path.Combine(dirName, s);
                 }
 
                 nextNumber++;
