@@ -152,6 +152,7 @@
     <Compile Include="Internal\FileAppenders\CountingSingleProcessFileAppender.cs" />
     <Compile Include="Internal\FileAppenders\ICreateFileParameters.cs" />
     <Compile Include="Internal\FileAppenders\IFileAppenderFactory.cs" />
+    <Compile Include="Internal\FileAppenders\IsolatedStorageFileAppender.cs" />
     <Compile Include="Internal\FileAppenders\MutexMultiProcessFileAppender.cs" />
     <Compile Include="Internal\FileAppenders\RetryingMultiProcessFileAppender.cs" />
     <Compile Include="Internal\FileAppenders\SingleProcessFileAppender.cs" />
@@ -327,6 +328,7 @@
     <Compile Include="Targets\FileArchivePeriod.cs" />
     <Compile Include="Targets\FileTarget.cs" />
     <Compile Include="Targets\FormControlTarget.cs" />
+    <Compile Include="Targets\IsolatedStorageTarget.cs" />
     <Compile Include="Targets\LineEndingMode.cs" />
     <Compile Include="Targets\LogReceiverWebServiceTarget.cs" />
     <Compile Include="Targets\MailTarget.cs" />
